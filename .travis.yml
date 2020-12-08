@@ -1,5 +1,7 @@
 services:
   - docker
 
+arch:
+  - arm64
 script:
   - make all
