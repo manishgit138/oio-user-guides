@@ -1,11 +1,11 @@
 FROM alpine:3.11
 
-ENV MKCERT_VERSION=1.4.1
+ENV MKCERT_VERSION=1.4.3
 
 # Run as root
 RUN apk add --no-cache curl openssl \
     && curl -sSL -o /usr/local/bin/mkcert \
-        "https://github.com/FiloSottile/mkcert/releases/download/v${MKCERT_VERSION}/mkcert-v${MKCERT_VERSION}-linux-amd64" \
+        "https://github.com/FiloSottile/mkcert/releases/download/v${MKCERT_VERSION}/mkcert-v${MKCERT_VERSION}-linux-arm64" \
     && chmod a+x /usr/local/bin/mkcert \
     && mkcert -version \
     && adduser --disabled-password mkcert \
