@@ -6,5 +6,10 @@ group: edge
 arch:
   - arm64-graviton2
 script:
-  - sudo apt-get install -y bats
+  - sudo apt-get remove --purge docker-compose -y
+  - rm -rf /usr/local/bin/docker-compose
+  - sudo apt-get install -y bats curl docker-compose
+  - echo $PATH
+  - export PATH=/usr/bin/:$PATH
+  #- sudo apt-get install -y bats
   - make all
