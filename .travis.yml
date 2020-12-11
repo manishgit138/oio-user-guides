@@ -7,6 +7,7 @@ arch:
   - arm64-graviton2
 script:
   - sudo apt-get remove --purge docker-compose -y
+  - sudo file /usr/local/bin/docker-compose
   - sudo rm -rf /usr/local/bin/docker-compose
   - sudo apt-get install -y bats curl docker-compose
   - echo $PATH
