@@ -6,7 +6,7 @@ groupadd -g 2001 traefik
 useradd -g traefik --no-user-group --no-create-home --shell /usr/sbin/nologin --system --uid 2001 traefik
 
 # certificates 
-curl -sSL -o /usr/bin/mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-linux-amd64
+curl -sSL -o /usr/bin/mkcert https://github.com/FiloSottile/mkcert/releases/download/v1.4.2/mkcert-v1.4.2-linux-arm64
 chmod a+x /usr/bin/mkcert
 mkdir /etc/ssl/private_keys
 mkcert -key-file /etc/ssl/private_keys/openio.pem -cert-file /etc/ssl/certs/openio.cert \
@@ -16,8 +16,8 @@ cp /root/.local/share/mkcert/rootCA.pem /etc/ssl/certs/
 echo 192.168.4.200 vagrant.demo.openio.io >> /etc/hosts
 
 # LB
-wget --quiet https://github.com/containous/traefik/releases/download/v2.2.1/traefik_v2.2.1_linux_amd64.tar.gz
-tar -xzf traefik_v2.2.1_linux_amd64.tar.gz
+wget --quiet https://github.com/traefik/traefik/releases/download/v2.2.1/traefik_v2.2.1_linux_arm64.tar.gz
+tar -xzf traefik_v2.2.1_linux_arm64.tar.gz
 cp traefik /usr/bin/
 rm -f CHANGELOG.md LICENSE.md traefik traefik.*tar.gz
 install -d -o traefik -g traefik -m 750 /etc/traefik.d
